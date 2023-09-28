@@ -15,15 +15,6 @@ class PostController extends Controller
     public function index()
     {
         return PostResource::collection(Post::all());
-        // return response()->json([new PostResource()]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -31,31 +22,34 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //
+        return new PostResource(Post::create($request->all()));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Post $post)
-    {
-        //
+        $post = $this->getPost($id);
+        
+        if (!$post) {
+            return response()->json(['message' => 'Post not found!'], 404);
+        }
+        return new PostResource($post);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(UpdatePostRequest $request, $id)
     {
-        //
+        $post = $this->getPost($id);
+        if (!$post) {
+            return response()->json(['message' => 'Post not found!'], 404);
+        }
+        $post->update($request->all());
+
+        return new PostResource($post);
     }
 
     /**
@@ -63,6 +57,15 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return response()->noContent();
+    }
+
+    public function getPost($id)
+    {
+        $post = Post::find($id);
+
+        return $post;
     }
 }
