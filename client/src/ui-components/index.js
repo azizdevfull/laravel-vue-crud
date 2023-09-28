@@ -1,2 +1,3 @@
 import VueIcon from "./VueIcon.vue";
-export default [VueIcon];
+import Loader from "./Loader.vue";
+export default [VueIcon, Loader];
