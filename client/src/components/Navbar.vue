@@ -16,9 +16,9 @@
                     >Home</RouterLink
                 >
                 <RouterLink
-                    :to="{ name: 'about' }"
+                    :to="{ name: 'create-post' }"
                     class="me-3 py-2 link-body-emphasis text-decoration-none"
-                    >About</RouterLink
+                    >Create</RouterLink
                 >
         </nav>
     </div>
