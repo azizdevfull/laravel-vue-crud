@@ -29,6 +29,19 @@ const actions = {
                 });
         });
     },
+    deletePost(context, id) {
+        return new Promise((resolve) => {
+            context.commit("controlPostStart");
+            PostService.deletePost(id)
+                .then(() => {
+                    context.commit("controlPostSuccess");
+                    resolve();
+                })
+                .catch(() => {
+                    context.commit("controlPostFailure");
+                });
+        });
+    },
 };
 
 export default {

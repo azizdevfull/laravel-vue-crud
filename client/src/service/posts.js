@@ -7,6 +7,9 @@ const PostService = {
     createPost(post) {
         return axios.post("/posts/", post);
     },
+    deletePost(id) {
+        return axios.delete("/posts/" + id);
+    }
 };
 
 export default PostService;

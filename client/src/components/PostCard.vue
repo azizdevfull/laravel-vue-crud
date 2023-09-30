@@ -34,6 +34,14 @@
                         >
                             Read Post
                         </button>
+                        <button
+                            @click="deletePostHandler"
+                            :disabled="isLoading"
+                            type="button"
+                            class="btn btn-sm btn-outline-danger"
+                        >
+                            Delete
+                        </button>
                     </div>
                     <small class="text-body-secondary">{{
                         new Date(post.created_at).toLocaleDateString("uzb")
@@ -44,11 +52,24 @@
     </div>
 </template>
 <script>
+import { mapState } from "vuex";
 export default {
     props: {
         post: {
             type: Object,
             required: true,
+        },
+    },
+    computed: {
+        ...mapState({
+            isLoading: (state) => state.control.isLoading,
+        }),
+    },
+    methods: {
+        deletePostHandler() {
+            return this.$store
+                .dispatch("deletePost", this.post.id)
+                .then(() => this.$store.dispatch("posts"));
         },
     },
 };
