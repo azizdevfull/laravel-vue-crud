@@ -11,7 +11,9 @@ class Post extends Model
     use HasFactory;
     protected $fillable = [
         'title',
+        'en_title',
         'body',
+        'en_body',
         'slug',
     ];
 
