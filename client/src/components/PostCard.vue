@@ -19,10 +19,10 @@
             </svg>
             <div class="card-body">
                 <p class="card-title fw-bold">
-                    {{ post.title }}
+                    {{ post.title.uz }}
                 </p>
                 <p class="card-text">
-                    {{ post.body.slice(0, 250) }}
+                    {{ post.body.uz.slice(0, 250) }}
                 </p>
                 <div
                     class="d-flex justify-content-between align-items-center card-footer"

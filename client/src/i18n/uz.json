@@ -1,0 +1,15 @@
+{
+    "placeholders": {
+        "email": "Email",
+        "password": "Parol"
+    },
+    "forgot": "E-pochtangizni hech kim bilan baham ko'rmaymiz.",
+    "checkbox": "Meni tekshiring",
+    "buttons": {
+        "login": "Kirish",
+        "register": "Ro'yxatdan O'tish"
+    },
+    "switch_lang": "Tilni Almashtirish",
+    "create_post": "Post Yaratish"
+
+}

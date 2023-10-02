@@ -1,5 +1,5 @@
 <template>
-    <h1 class="text-center display-2">Create Article</h1>
+    <h1 class="text-center display-2">{{ $t('create_post') }}</h1>
     <div class="w-50 mx-auto">
         <form @submit.prevent>
             <Input
